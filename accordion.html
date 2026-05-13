@@ -4,225 +4,173 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Image Accordion</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-* { box-sizing: border-box; margin: 0; padding: 0; }
-.acc-wrap { width: 100%; font-family: 'Montserrat', sans-serif; overflow: hidden; }
-.acc-ul { display: flex; flex-direction: row; list-style: none; width: 100%; height: 340px; }
-.acc-li { flex: 1; min-width: 0; position: relative; overflow: hidden; transition: flex 0.5s cubic-bezier(.4,0,.2,1); cursor: pointer; }
-.acc-li .bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.5s ease; }
-.acc-li:hover .bg { transform: scale(1.04); }
-.acc-li .overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.38); transition: background 0.3s; }
-.acc-li:hover .overlay { background: rgba(0,0,0,0.55); }
-.acc-li .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 18px 16px 16px; color: #fff; opacity: 0; transform: translateY(10px); transition: opacity 0.35s ease, transform 0.35s ease; pointer-events: none; }
-.acc-li:hover .info { opacity: 1; transform: translateY(0); pointer-events: auto; }
-.acc-li .info h2 { font-size: 15px; font-weight: 700; margin: 0 0 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; letter-spacing: 0.03em; color: #fff; }
-.acc-li .info a { font-size: 12px; color: #fff; text-decoration: underline; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; cursor: pointer; }
-.acc-ul:hover .acc-li { flex: 0.4; }
-.acc-ul:hover .acc-li:hover { flex: 2.8; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.acc-wrap {
+  width: 100%;
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+}
+
+.acc-ul {
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  width: 100%;
+  height: 340px;
+}
+
+.acc-li {
+  flex: 1;
+  min-width: 0;
+  position: relative;
+  overflow: hidden;
+  transition: flex 0.5s cubic-bezier(.4,0,.2,1);
+  cursor: pointer;
+}
+
+.acc-li .bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.5s ease;
+}
+
+.acc-li:hover .bg {
+  transform: scale(1.04);
+}
+
+.acc-li .overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.38);
+  transition: background 0.3s;
+}
+
+.acc-li:hover .overlay {
+  background: rgba(0,0,0,0.55);
+}
+
+.acc-li .info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 16px 16px;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.acc-li:hover .info {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.acc-li .info h2 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  letter-spacing: 0.03em;
+  color: #fff;
+}
+
+.acc-li .info a {
+  font-size: 12px;
+  color: #fff;
+  text-decoration: underline;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: block;
+  cursor: pointer;
+}
+
+.acc-ul:hover .acc-li {
+  flex: 0.4;
+}
+
+.acc-ul:hover .acc-li:hover {
+  flex: 2.8;
+}
+
 @media (max-width: 600px) {
-  .acc-ul { flex-direction: column; height: auto; }
-  .acc-li { flex: none !important; width: 100%; height: 70px; transition: height 0.5s cubic-bezier(.4,0,.2,1); }
-  .acc-ul:hover .acc-li { height: 70px; flex: none !important; }
-  .acc-ul:hover .acc-li:hover { height: 220px; flex: none !important; }
-  .acc-li:hover .info { opacity: 1; transform: translateY(0); }
+  .acc-ul {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .acc-li {
+    flex: none !important;
+    width: 100%;
+    height: 70px;
+    transition: height 0.5s cubic-bezier(.4,0,.2,1);
+  }
+
+  .acc-ul:hover .acc-li {
+    height: 70px;
+    flex: none !important;
+  }
+
+  .acc-ul:hover .acc-li:hover {
+    height: 220px;
+    flex: none !important;
+  }
+
+  .acc-li:hover .info {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 </style>
 </head>
+
 <body>
+
 <div class="acc-wrap">
   <ul class="acc-ul">
 
+    <!-- CARD -->
     <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
+      <div class="bg" style="background-image:url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
       <div class="overlay"></div>
       <div class="info">
         <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
+        <a href="#"
+           onclick="window.parent.postMessage({ type: 'open-link', url: 'https://www.linkedin.com/in/merav-battat-305b0a249/' }, '*'); return false;">
+           Lab Director
+        </a>
       </div>
     </li>
 
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
+    <!-- DUPLICATE -->
+    <script>
+      const ul = document.querySelector('.acc-ul');
+      const item = ul.innerHTML;
 
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
-
-    <li class="acc-li">
-      <div class="bg" style="background-image: url('https://static.wixstatic.com/media/369a87_7e109fdaeb7542a2b9a3ff59fda52355~mv2.jpg');"></div>
-      <div class="overlay"></div>
-      <div class="info">
-        <h2>Merav Battat</h2>
-        <a href="#" onclick="window.open('https://www.linkedin.com/in/merav-battat-305b0a249/','_blank'); return false;">Lab Director</a>
-      </div>
-    </li>
+      for(let i = 0; i < 20; i++) {
+        ul.insertAdjacentHTML('beforeend', item);
+      }
+    </script>
 
   </ul>
 </div>
+
 </body>
 </html>
